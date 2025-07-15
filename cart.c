@@ -9,7 +9,6 @@ void initCart(Cart* cart) {
 
 void addToCart(Cart* cart) {
     int choice;
-
     showMenu();
     printf("Your choice: ");
     scanf("%d", &choice);
@@ -24,7 +23,7 @@ void addToCart(Cart* cart) {
 
     switch (choice) {
         case 1:
-            strcpy(cart->items[cart->count].name, "Margherita Pizza");
+            strcpy(cart->items[cart->count].name, "Pizza Margherita");
             cart->items[cart->count].price = 120;
             break;
         case 2:
@@ -35,19 +34,31 @@ void addToCart(Cart* cart) {
             strcpy(cart->items[cart->count].name, "Sushi Set");
             cart->items[cart->count].price = 220;
             break;
+        case 4:
+            strcpy(cart->items[cart->count].name, "Caesar Salad");
+            cart->items[cart->count].price = 85;
+            break;
+        case 5:
+            strcpy(cart->items[cart->count].name, "Spaghetti Carbonara");
+            cart->items[cart->count].price = 150;
+            break;
+        case 6:
+            strcpy(cart->items[cart->count].name, "Grilled Salmon");
+            cart->items[cart->count].price = 200;
+            break;
         default:
             printf("Invalid choice.\n");
             return;
     }
 
     cart->count++;
-    printf("Dish added to the cart.\n");
+    printf("Dish added to cart.\n");
 }
 
 void viewCart(Cart* cart) {
     printf("\n=== CART ===\n");
     if (cart->count == 0) {
-        printf("Cart is empty.\n");
+        printf("Your cart is empty.\n");
         return;
     }
 
@@ -61,7 +72,7 @@ void viewCart(Cart* cart) {
 
 void checkout(Cart* cart) {
     if (cart->count == 0) {
-        printf("Cart is empty, nothing to checkout.\n");
+        printf("Your cart is empty, nothing to checkout.\n");
         return;
     }
 
